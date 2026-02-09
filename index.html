@@ -1,67 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    background-color: #f4f7f6; /* हल्का और साफ बैकग्राउंड */
-    color: #333;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .card {
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-    border: 2px solid #007bff; /* प्रोफेशनल नीला रंग */
-    max-width: 320px;
-  }
-  img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 3px solid #007bff;
-  }
-  h1 {
-    color: #007bff;
-    font-size: 22px;
-    margin-top: 15px;
-  }
-  p {
-    color: #555;
-    font-size: 15px;
-    line-height: 1.4;
-  }
-  .wa-button {
-    background-color: #28a745; /* गहरा हरा रंग */
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 8px;
-    display: block;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        body {
+            background-color: #fff0f5; /* हल्का गुलाबी बैकग्राउंड */
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            color: #800000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            border: 10px double #d4af37; /* सुनहरा बॉर्डर */
+            margin: 15px;
+            background-color: white;
+            border-radius: 20px;
+        }
+        h1 { font-size: 35px; margin-bottom: 5px; }
+        .heart { color: red; font-size: 30px; }
+        img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            border: 3px solid #d4af37;
+            margin-top: 15px;
+        }
+        .timer-box {
+            background: #800000;
+            color: #ffd700;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: inline-block;
+            width: 80%;
+        }
+        .timer-unit { display: inline-block; margin: 0 10px; }
+        .btn-map {
+            display: block;
+            background: #d4af37;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <img src="bhai.jpg" alt="मेरा फोटो">
-    <h1>वेब डेवलपर (Student)</h1>
-    <p>मैं कोडिंग सीख रहा हूँ। किसी भी प्रकार की जानकारी या काम के लिए आप मुझसे संपर्क कर सकते हैं।</p>
+<div class="container">
+    <p>🚩 ॐ श्री गणेशाय नम: 🚩</p>
+    <h1>आर्यन <span class="heart">♥</span> नेहा</h1>
+    <p style="font-size: 18px;">संग परिणय सूत्र में बंधेंगे</p>
     
-    <a href="https://wa.me/91919939373483" class="wa-button">
-       💼 काम की बात के लिए यहाँ मैसेज करें
-    </a>
-  </div>
+    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Couple">
+
+    <div class="timer-box">
+        <h3>शादी में बचा समय:</h3>
+        <div id="countdown" style="font-size: 20px; font-weight: bold;"></div>
+    </div>
+
+    <p><b>तारीख:</b> 25 फरवरी, 2026</p>
+    <p><b>स्थान:</b> पटना जंक्शन के पास, बिहार</p>
+
+    <a href="https://maps.app.goo.gl/YourMapLink" class="btn-map">📍 लोकेशन (Google Maps)</a>
+    
+    <p style="font-size: 14px;">दर्शन अभिलाषी: समस्त परिवार</p>
+</div>
+
+<script>
+    // शादी की तारीख सेट करें
+    var weddingDate = new Date("Feb 25, 2026 10:00:00").getTime();
+
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = weddingDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("countdown").innerHTML = days + " दिन " + hours + " घंटे " + minutes + " मिनट ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "शादी संपन्न हो चुकी है!";
+        }
+    }, 1000);
+</script>
 
 </body>
 </html>
+
