@@ -5,94 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sachin Roy - Digital Samastipur</title>
     <style>
-        /* प्रोफेशनल CSS कोड */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: #0f0c29; /* गहरा नीला प्रोफेशनल बैकग्राउंड */
-            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
-            color: white;
-            text-align: center;
-        }
-        .container {
-            padding: 50px 20px;
-        }
-        .profile-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #00d2ff;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        .tagline {
-            font-size: 1.2rem;
-            color: #e0e0e0;
-            margin-bottom: 25px;
-        }
-        .price-tag {
-            background: #ff512f;
-            background: linear-gradient(to right, #ff512f, #dd2476);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-        .order-btn {
-            background: #25D366; /* व्हाट्सएप हरा रंग */
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: block;
-            transition: 0.3s;
-        }
-        .order-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #888;
-        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #000428; background: linear-gradient(to right, #004e92, #000428); color: white; text-align: center; }
+        .header { padding: 40px 20px; background: rgba(255,255,255,0.1); }
+        h1 { color: #fdbb2d; margin: 0; font-size: 2.5rem; }
+        .container { padding: 20px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .card-box { background: white; color: #333; width: 90%; max-width: 350px; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .card-box h3 { margin-top: 0; color: #b21f1f; }
+        .btn { display: block; background: #b21f1f; color: white; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        .whatsapp-main { background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 30px; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
+    <div class="header">
+        <h1>डिजिटल समस्तीपुर</h1>
+        <p>सचिन रॉय - प्रोफेशनल कार्ड डिज़ाइनर</p>
+    </div>
+
     <div class="container">
-        <div class="profile-card">
-            <h1>sachin Roy</h1>
-            <p class="tagline">Digital Samastipur - प्रोफेशनल डिजिटल कार्ड मेकर</p>
-            
-            <div class="price-tag">मात्र ₹49 में!</div>
-
-            <p>शादी कार्ड, बिजनेस कार्ड और डिजिटल आमंत्रण के लिए संपर्क करें।</p>
-            
-            <a href="https://wa.me/919939373483?text=नमस्ते सचिन भाई, मुझे डिजिटल कार्ड बनवाना है।" class="order-btn">
-                WhatsApp पर आर्डर करें
-            <a href="https://youtube.me @Zakfilms2k
-            <a herf="https://instagram.me @sachin roy
+        <div class="card-box">
+            <h3>💍 शादी कार्ड</h3>
+            <p>शानदार डिजिटल शादी निमंत्रण मात्र ₹49 में।</p>
+            <a href="#" class="btn">सैंपल देखें</a>
         </div>
 
-        <div class="footer">
-            <p></p> प्यार के साथ | sachin Roy</p>
-            <p>आपका लिंक: Digital-Shadi-Card.github.io/wedding-card/</p>
+        <div class="card-box">
+            <h3>💼 बिजनेस कार्ड</h3>
+            <p>अपने व्यापार को डिजिटल बनाएं। मात्र ₹49।</p>
+            <a href="#" class="btn">सैंपल देखें</a>
         </div>
+
+        <div class="card-box">
+            <h3>🎂 बर्थडे कार्ड</h3>
+            <p>बच्चों और बड़ों के लिए स्पेशल बर्थडे कार्ड।</p>
+            <a href="#" class="btn">सैंपल देखें</a>
+        </div>
+
+        <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते सचिन भाई, मुझे कार्ड बनवाना है।" class="whatsapp-main">
+            ऑर्डर के लिए यहाँ क्लिक करें
+        </a>
     </div>
 
 </body>
 </html>
-
