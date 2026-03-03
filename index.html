@@ -1,88 +1,142 @@
-/* पूरे कार्ड का बैकग्राउंड और लिखावट */
-body {
-    background: linear-gradient(to bottom, #ffefba, #ffffff); /* हल्का गोल्ड और सफ़ेद शेड */
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    color: #333;
-}
-
-/* कार्ड का बॉक्स */
-.card-container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* छाया जिससे कार्ड उभरा हुआ दिखे */
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 350px;
-}
-
-/* बटन का स्टाइल (Call, WhatsApp, Map) */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
-.whatsapp-btn { background-color: #25D366; } /* व्हाट्सएप का हरा रंग */
-.call-btn { background-color: #007bff; }    /* कॉल का नीला रंग */
-.map-btn { background-color: #ff5722; }     /* मैप का संतरी रंग */
-
-/* बटन पर माउस ले जाने पर चमक (Hover) */
-.btn:hover {
-    opacity: 0.8;
-    transform: scale(1.05);
-}
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Roy - Digital Samastipur</title>
+    <title>Sachin - Professional Digital Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #000428; background: linear-gradient(to right, #004e92, #000428); color: white; text-align: center; }
-        .header { padding: 40px 20px; background: rgba(255,255,255,0.1); }
-        h1 { color: #fdbb2d; margin: 0; font-size: 2.5rem; }
-        .container { padding: 20px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .card-box { background: white; color: #333; width: 90%; max-width: 350px; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .card-box h3 { margin-top: 0; color: #b21f1f; }
-        .btn { display: block; background: #b21f1f; color: white; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        .whatsapp-main { background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 30px; font-size: 1.2rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #0f172a; color: #f8fafc; line-height: 1.6; }
+        
+        /* Background Animation */
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+        
+        header { 
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            padding: 40px 20px;
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 { font-size: 2.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .badge { background: #fff; color: #1e293b; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+
+        /* Service Cards */
+        .section-title { margin: 30px 0 15px; color: #38bdf8; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .card { 
+            background: #1e293b; 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            border-radius: 15px; 
+            border-left: 5px solid #38bdf8;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); background: #243147; }
+
+        /* Gallery System */
+        .sample-btn {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .gallery {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .gallery img { 
+            width: 100%; 
+            border-radius: 12px; 
+            border: 2px solid #38bdf8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Order Button */
+        .order-btn {
+            display: block;
+            background: #22c55e;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 40px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        footer { margin-top: 50px; padding-bottom: 30px; font-size: 0.8rem; color: #64748b; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>डिजिटल समस्तीपुर</h1>
-        <p>सचिन रॉय - प्रोफेशनल कार्ड डिज़ाइनर</p>
-    </div>
+    <header>
+        <span class="badge">PRO DESIGNER</span>
+        <h1>ZAK FILMS 2k</h1>
+        <p>सचिन भाई की डिजिटल दुकान</p>
+    </header>
 
     <div class="container">
-        <div class="card-box">
-            <h3>💍 शादी कार्ड</h3>
-            <p>शानदार डिजिटल शादी निमंत्रण मात्र ₹49 में।</p>
-            <a href="#" class="btn">सैंपल देखें</a>
+        
+        <div class="section-title">मेरी सेवाएं</div>
+
+        <div class="card">
+            <h3>💍 Wedding Video Cards</h3>
+            <p>सिनेमैटिक और 3D एनीमेशन के साथ शानदार शादी के कार्ड।</p>
+            <button class="sample-btn" onclick="toggleGallery()">Sample देखें (3 Photos)</button>
+            
+            <div id="gallery" class="gallery">
+                <img src="wedding1.jpg" alt="Wedding Sample 1">
+                <img src="wedding2.jpg" alt="Wedding Sample 2">
+                <img src="wedding3.jpg" alt="Wedding Sample 3">
+            </div>
         </div>
 
-        <div class="card-box">
-            <h3>💼 बिजनेस कार्ड</h3>
-            <p>अपने व्यापार को डिजिटल बनाएं। मात्र ₹49।</p>
-            <a href="#" class="btn">सैंपल देखें</a>
+        <div class="card">
+            <h3>🌐 Website Designing</h3>
+            <p>आपके बिज़नेस के लिए तेज़ और सुंदर वेबसाइट्स (HTML/CSS/JS)।</p>
         </div>
 
-        <div class="card-box">
-            <h3>🎂 बर्थडे कार्ड</h3>
-            <p>बच्चों और बड़ों के लिए स्पेशल बर्थडे कार्ड।</p>
-            <a href="#" class="btn">सैंपल देखें</a>
+        <div class="card">
+            <h3>🎂 Birthday & Events</h3>
+            <p>हर मौके के लिए स्पेशल डिजिटल इनविटेशन।</p>
         </div>
 
-        <a href="https://wa.me/919939373483?text=नमस्ते सचिन भाई, मुझे कार्ड बनवाना है।" class="whatsapp-main">
-            ऑर्डर के लिए यहाँ क्लिक करें
+        <a href="https://wa.me/919939373483?text=Hi सचिन, मुझे एक कार्ड बनवाना है" class="order-btn">
+            💬 अभी आर्डर करें (WhatsApp)
         </a>
+
+        <footer>
+            डिजाइन किया गया सचिन द्वारा | Samastipur, Bihar
+        </footer>
     </div>
+
+    <script>
+        function toggleGallery() {
+            var g = document.getElementById("gallery");
+            if (g.style.display === "none" || g.style.display === "") {
+                g.style.display = "grid";
+            } else {
+                g.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
