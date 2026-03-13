@@ -5,30 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arth AI | Official Dashboard</title>
     <style>
-        body { background-color: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .chat-card { width: 90%; max-width: 450px; background: #1e293b; border-radius: 20px; padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid #38bdf8; }
-        .header { text-align: center; margin-bottom: 20px; }
-        .header h1 { color: #38bdf8; margin: 0; font-size: 28px; text-transform: uppercase; }
-        .header p { font-size: 12px; color: #94a3b8; }
-        .chat-box { height: 250px; background: #0f172a; border-radius: 10px; padding: 10px; margin-bottom: 15px; overflow-y: auto; border: 1px solid #334155; }
+        body { background-color: #0f172a; color: white; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .chat-card { width: 95%; max-width: 450px; background: #1e293b; border-radius: 20px; padding: 20px; border: 1px solid #38bdf8; box-sizing: border-box; }
+        .header { text-align: center; margin-bottom: 15px; }
+        .chat-box { height: 350px; background: #0f172a; border-radius: 10px; padding: 15px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #334155; display: flex; flex-direction: column; }
         .input-group { display: flex; gap: 10px; }
-        input { flex: 1; padding: 12px; border-radius: 25px; border: 1px solid #334155; background: #1e293b; color: white; outline: none; }
-        button { background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+        input { flex: 1; padding: 12px; border-radius: 25px; border: none; background: #334155; color: white; outline: none; }
+        button { background: #38bdf8; border: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; color: #0f172a; }
+        .msg { margin: 8px 0; padding: 10px 14px; border-radius: 15px; max-width: 85%; font-size: 14px; line-height: 1.4; }
+        .user { background: #334155; align-self: flex-end; color: #fff; }
+        .ai { background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8; align-self: flex-start; }
     </style>
 </head>
 <body>
     <div class="chat-card">
         <div class="header">
-            <h1>ARTH AI</h1>
-            <p>BY CEO SACHIN KUMAR</p>
+            <h1 style="color: #38bdf8; margin:0; font-size: 24px;">ARTH AI</h1>
+            <p style="font-size: 11px; color: #94a3b8; margin: 5px 0;">CREATOR: CEO SACHIN KUMAR</p>
         </div>
-        <div class="chat-box" id="chat">
-            <p style="color: #38bdf8;"><b>Arth AI:</b> नमस्ते CEO सचिन! सिस्टम ऑनलाइन है।</p>
+        <div id="chat" class="chat-box">
+            <div class="msg ai"><b>Arth AI:</b> नमस्ते CEO सचिन! मैं समस्तीपुर का अपना AI हूँ। आज क्या धमाका करना है?</div>
         </div>
         <div class="input-group">
-            <input type="text" id="msg" placeholder="अपना सवाल पूछें...">
-            <button onclick="alert('System Link Coming Soon!')">SEND</button>
+            <input type="text" id="userInput" placeholder="मुझसे कुछ भी पूछें...">
+            <button onclick="askArth()">SEND</button>
         </div>
     </div>
+
+    <script>
+        // आपकी API Key यहाँ सुरक्षित तरीके से सेट है
+        const MY_KEY = "AIzaSyD0gupCcRadbVqh2Pi2S2KBl9E3U6IzsE"; 
+
+        async function askArth() {
+            const input = document.getElementById('userInput');
+            const chat = document.getElementById('chat');
+            const text = input.value.trim();
+            if(!text) return;
+
+            chat.innerHTML += `<div class="msg user"><b>आप:</b> ${text}</div>`;
+            input.value = "";
+            chat.scrollTop = chat.scrollHeight;
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${MY_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: text }] }] })
+                });
+                const data = await res.json();
+                const reply = data.candidates[0].content.parts[0].text;
+                chat.innerHTML += `<div class="msg ai"><b>Arth AI:</b> ${reply}</div>`;
+                chat.scrollTop = chat.scrollHeight;
+            } catch (e) {
+                chat.innerHTML += `<div class="msg ai" style="color:red;">Error: सिस्टम अभी बिजी है, फिर से कोशिश करें!</div>`;
+            }
+        }
+    </script>
 </body>
 </html>
